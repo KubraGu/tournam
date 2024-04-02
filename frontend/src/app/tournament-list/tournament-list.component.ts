@@ -43,4 +43,13 @@ export class TournamentListComponent implements OnInit {
     });
   }
 
+  onClickAddPlayer() {
+      // Code à exécuter lors du clic sur "Ajouter un joueur"
+      // Par exemple, vous pouvez naviguer vers une nouvelle page ou afficher un formulaire modal pour ajouter un joueur
+    }
+
+    onClickClose() {
+      // Code à exécuter lors du clic sur "Fermer"
+      // Par exemple, vous pouvez fermer la fenêtre modale ou revenir à la page précédente
+    }
 }

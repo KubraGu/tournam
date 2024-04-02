@@ -5,9 +5,10 @@ import { HttpClient } from '@angular/common/http';
 
 import { TournamentRestControllerService } from './api/tournamentRestController.service';
 import { UserRestControllerService } from './api/userRestController.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  imports:      [],
+  imports:      [FormsModule],
   declarations: [],
   exports:      [],
   providers: [

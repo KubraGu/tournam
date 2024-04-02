@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {
   NgbDropdown,
@@ -14,7 +15,7 @@ import {
   standalone: true,
   imports: [RouterOutlet, RouterLink, RouterLinkActive,
     NgbNavItem, NgbNavLink, NgbNav,
-    NgbDropdown, NgbDropdownMenu, NgbDropdownItem],
+    NgbDropdown, NgbDropdownMenu, NgbDropdownItem, FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

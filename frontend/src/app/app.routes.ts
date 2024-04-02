@@ -5,11 +5,13 @@ import {TodoNewComponent} from "./todo-new/todo-new.component";
 import {TournamentEditFormComponent} from "./tournament-edit-form/tournament-edit-form.component";
 import {TournamentDetailComponent} from "./tournament-detail/tournament-detail.component";
 import {TournamentListComponent} from "./tournament-list/tournament-list.component";
+import { UserCreateComponent } from './users-create/users-create.component';
 
 export const routes: Routes = [
   {path:'todo', component: TodoListComponent},
   {path:'todo/new', component: TodoNewComponent},
   {path:'todo-detail/:id', component: TodoDetailComponent},
+  { path: 'tournaments/new_user', component: UserCreateComponent },
 
   {path:'tournaments', component: TournamentListComponent},
   {path:'tournaments/new', component: TournamentEditFormComponent},

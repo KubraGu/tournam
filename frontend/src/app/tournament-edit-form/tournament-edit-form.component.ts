@@ -24,21 +24,21 @@ export class TournamentEditFormComponent {
   }
 
   onSubmit() {
-    console.log('submit tournament', this.tournamentName);
-    let req = { name: 'Tournament from Angular'};
-    this.errorOccured = null;
-    this.httpClient.post<CreateTournamentResponseDTO>('/api/tournament', req)
-      .subscribe(
-        res => {
-          console.log('Done', res);
-          this.errorOccured = null;
+      console.log('submit tournament', this.tournamentName);
+      let req = { name: this.tournamentName }; 
+      this.errorOccured = null;
+      this.httpClient.post<CreateTournamentResponseDTO>('/api/tournament', req)
+        .subscribe(
+          res => {
+            console.log('Done', res);
+            this.errorOccured = null;
 
-          this.router.navigate(['tournament', res.id]);
+            this.router.navigate(['tournament', res.id]);
 
-        }, err => {
-          console.log('Error occured', err);
-          this.errorOccured = '(' + err.status + ') ' + err.message;
-        }
-      );
-  }
+          }, err => {
+            console.log('Error occured', err);
+            this.errorOccured = '(' + err.status + ') ' + err.message;
+          }
+        );
+    }
 }
