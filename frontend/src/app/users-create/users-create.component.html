@@ -1,25 +1,29 @@
-
 <h1>Create User</h1>
 
-<form ngSubmit="onSubmit()" userForm="ngForm">
+<form (ngSubmit)="onSubmit(userForm)" #userForm="ngForm">
   <div>
     <label for="firstName">First Name:</label>
-    <input type="text" id="firstName" name="firstName" ngModel="firstName" required>
+    <input type="text" id="firstName" name="firstName" [(ngModel)]="firstName" required>
   </div>
 
   <div>
     <label for="lastName">Last Name:</label>
-    <input type="text" id="lastName" name="lastName" ngModel="firstName" required>
+    <input type="text" id="lastName" name="lastName" [(ngModel)]="lastName" required>
   </div>
 
   <div>
     <label for="birthDate">Birth Date:</label>
-    <input type="date" id="birthDate" name="birthDate" ngModel="birthDate" required>
+    <input type="date" id="birthDate" name="birthDate" [(ngModel)]="birthDate" required>
   </div>
 
   <div>
     <label for="email">Email:</label>
-    <input type="email" id="email" name="email" ngModel="email" required>
+    <input type="email" id="email" name="email" [(ngModel)]="email" required>
+  </div>
+
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" [(ngModel)]="password" required>
   </div>
 
   <button type="submit">Create</button>

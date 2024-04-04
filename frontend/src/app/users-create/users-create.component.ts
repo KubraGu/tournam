@@ -1,34 +1,41 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { NgForm } from '@angular/forms'; // Import NgForm
+import { NgForm } from '@angular/forms';
+import {UserService} from "../user.service";
 
-interface CreateUserRequestDTO {
-  firstName: string;
-  lastName: string;
-  birthDate: Date;
-  email: string;
-}
 
 @Component({
   selector: 'app-users-create',
   templateUrl: './users-create.component.html',
 })
 export class UserCreateComponent {
-  constructor(private httpClient: HttpClient) {}
+  firstName: string = '';
+  lastName: string = '';
+  birthDate: Date | null = null;
+  email: string = '';
+  password: string = '';
 
-  onSubmit(userForm: NgForm) { // Use NgForm type for userForm parameter
-    const formData: CreateUserRequestDTO = userForm.value;
-    
-    this.httpClient.post<any>('/api/users', formData)
+  constructor(private userService: UserService) {}
+
+
+  onSubmit(userForm: NgForm) {
+    const formData = {
+      firstName: this.firstName,
+      lastName: this.lastName,
+      birthDate: this.birthDate instanceof Date ? this.birthDate : null,
+      email: this.email,
+      password: this.password
+    };
+
+
+    this.userService.createUser(formData)
       .subscribe(
         response => {
           console.log('User created successfully:', response);
-          // Optionally, you can reset the form after successful submission
-          userForm.reset();
+          alert(`L'utilisateur avec le nom "${formData.firstName}" a bien été créé.`);
+          userForm.resetForm();
         },
         error => {
           console.error('Error creating user:', error);
-          // Handle error if needed
         }
       );
   }

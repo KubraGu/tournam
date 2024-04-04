@@ -7,7 +7,7 @@ import {provideHttpClient} from "@angular/common/http";
 
 const apiConfig: Configuration = new Configuration(
   {
-    basePath: 'http://localhost:4200' // override default 'http://localhost:8080' for cors origin problems.. cf proxy
+    basePath: 'http://localhost:4200'
   });
 
 export const appConfig: ApplicationConfig = {
